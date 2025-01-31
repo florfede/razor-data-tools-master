@@ -29,23 +29,23 @@ namespace razor_data_tools.Data
             // };
 
             //Test
-            // SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-            // {
-            //     DataSource = "sr-azr-test-sqldb-01.database.windows.net",
-            //     UserID = "sqldbadmin",
-            //     Password = "8.QaPHQ6oTZh6",
-            //     InitialCatalog = "Corpus"
-            // };
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+            {
+                DataSource = "sr-azr-test-sqldb-01.database.windows.net",
+                UserID = "sqldbadmin",
+                Password = "8.QaPHQ6oTZh6",
+                InitialCatalog = "Corpus"
+            };
 
 
             //Prod II (Real Production
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-            {
-                DataSource = "sr-azr-prod-sqldb-01.database.windows.net",
-                UserID = "sqladmin",
-                Password = "damper-seen-botany-FUDDLE-alder-knight",
-                InitialCatalog = "Corpus"
-            };
+            //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+            //{
+            //    DataSource = "sr-azr-prod-sqldb-01.database.windows.net",
+            //    UserID = "sqladmin",
+            //    Password = "damper-seen-botany-FUDDLE-alder-knight",
+            //    InitialCatalog = "Corpus"
+            //};
 
             //sr-azr-prod-sqldb-01.database.windows.net
 
