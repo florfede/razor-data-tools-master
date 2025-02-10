@@ -73,7 +73,7 @@ namespace razor_data_tools.Pages.Tools
 
             // Generate a unique name for the file
             // string blobName = "OneTime/" + Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-            string blobName = $"OneTime/_{General.RemovePunctuation(Surname)}-{General.RemovePunctuation(FirstName)}_{SelectedPayor}_{Path.GetFileName(file.FileName)}";
+            string blobName = $"OneTime/ToProcess/_{General.RemovePunctuation(Surname)}-{General.RemovePunctuation(FirstName)}_{SelectedPayor}_{Path.GetFileName(file.FileName)}";
             
             // Get a reference to the blob
             BlobClient blobClient = containerClient.GetBlobClient(blobName);
