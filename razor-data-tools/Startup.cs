@@ -18,6 +18,8 @@ namespace razor_data_tools
 {
     public class Startup
     {
+        private static readonly int UploadSizeLimit = 1048576000; // Set global upload size limit to 1 GB (in bytes)
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,26 +33,26 @@ namespace razor_data_tools
             services.AddRazorPages()
                 .AddRazorPagesOptions(options =>
                 {
-                    // Increase multipart body length limit to 400 MB (in bytes)
-                    options.Conventions.ConfigureFilter(new RequestSizeLimitAttribute(419430400)); // Set global size limit to 400 MB
+                    // Increase multipart body length limit to UploadSizeLimit
+                    options.Conventions.ConfigureFilter(new RequestSizeLimitAttribute(UploadSizeLimit));
                 });
 
             // Configure Kestrel server options
             services.Configure<KestrelServerOptions>(options =>
             {
-                options.Limits.MaxRequestBodySize = 419430400; // Set limit to 400 MB (in bytes)
+                options.Limits.MaxRequestBodySize = UploadSizeLimit;
             });
 
             // Alternatively, configure IIS server options (if running under IIS)
             services.Configure<IISServerOptions>(options =>
             {
-                options.MaxRequestBodySize = 419430400; // Set limit to 400 MB (in bytes)
+                options.MaxRequestBodySize = UploadSizeLimit;
             });
 
             // Configure form options to increase the multipart body length limit
             services.Configure<FormOptions>(options =>
             {
-                options.MultipartBodyLengthLimit = 419430400; // Set limit to 400 MB (in bytes)
+                options.MultipartBodyLengthLimit = UploadSizeLimit;
             });
 
             // Add other services if required
